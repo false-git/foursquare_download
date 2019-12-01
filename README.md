@@ -17,7 +17,7 @@
     * Create New App
     * APP NAME と APP OR COMPANY URL を適当に入れる。
     * CLIENT ID(以降`<A>`と表記) と CLIENT SECRET(以降`<B>`と表記) が表示されるので、控えておく。
-    * WEB ADDRESSED の REDIRECT URL に自分が管理しているサイトのURL(以降`<C>`を入れて SAVE しておく。
+    * WEB ADDRESSED の REDIRECT URL に自分が管理しているサイトのURL(以降`<C>`)を入れて SAVE しておく。
 
 * CLIENT ID と CLIENT SECRET を keyring に登録(控えたものを登録する)
 ```shell-session
