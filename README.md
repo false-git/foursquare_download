@@ -1,13 +1,19 @@
 # foursquare_download
 
 * foursquareの過去のチェックイン情報がカレンダーから見られなくなってしまい、かつ2回申請しても過去ログを送ってくれないので、自分でダウンロードすることにする。
-* 参考: https://syncer.jp/foursquare-api-matome
+* 参考URL
+    * https://syncer.jp/foursquare-api-matome
+    * https://developer.foursquare.com/docs/api/users/checkins
+    * https://developer.foursquare.com/docs/api/configuration/authentication
+    * https://developer.foursquare.com/docs/api/configuration/versioning
+
 
 ## 前提条件
 
 * python 3.6以降
 * pipで以下のパッケージをインストールしてあること
     * keyring
+    * icalendar
 
 ## 手順
 
@@ -42,6 +48,14 @@ Password for 'client_secret' in 'foursquare_download':<B>
 ```
 
 * 過去のデータを取得する。
+  * 既に「保存ファイル名.json」が存在する場合、そのファイルを読み込んでfoursquareに問い合わせに行かないので、削除するか別の名前にする。
 ```shell-session
 % python get_checkins.py <保存ファイル名>
 ```
+
+* 「保存ファイル名.json」と「保存ファイル名.ics」と言うファイルができるので、保存ファイル名.icsをgoogle calendarにインポートする。
+    * google calendarは、結構インポートに失敗するので、メッセージの通り時間を置いてやり直すと良い。
+    * 一度インポートした後、icsファイルを修正して、再度インポートしても、予定が上書きされないので注意。
+
+* 不要になったfoursquareのアプリケーションへの承認は取り消しておく。  
+  https://ja.foursquare.com/settings/connections
